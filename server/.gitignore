@@ -1,0 +1,9 @@
+node_modules
+.env
+uploads/*
+!uploads/.gitkeep
+data/reports.json
+
+# Server uploads
+server/uploads/*
+!server/uploads/.gitkeep
