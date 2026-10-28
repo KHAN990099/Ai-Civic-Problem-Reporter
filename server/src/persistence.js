@@ -40,7 +40,7 @@ function buildSeedReports() {
     if (status === "Resolved") {
       history.push({ status: "Resolved", at: new Date(Date.parse(created) + 86400000 * 0.9).toISOString(), note: "Marked as resolved (demo)" });
     }
-    
+
     return {
       id: `CL-DEMO-${String(i + 1).padStart(3, "0")}`,
       description,
@@ -81,6 +81,7 @@ export async function loadReports() {
 
 export async function saveReports(reports) {
   const data = JSON.stringify(reports, null, 2);
+  await fs.mkdir(path.dirname(DATA_FILE), { recursive: true });
   await fs.writeFile(DATA_FILE, data, 'utf-8');
 }
 
